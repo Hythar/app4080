@@ -2,91 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  scrollbar-width: thin;
-}
+/* Extend your Tailwind configuration to include custom colors, fonts, etc. */
+@layer base {
+  body {
+    @apply bg-gray-100; /* Assuming a light gray background */
+  }
 
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
+  /* Main Profile Container */
+  .profile-container {
+    @apply flex flex-col items-center justify-center min-h-screen py-12;
+  }
 
-@media screen and (min-width: 966px) {
-  ::-webkit-scrollbar,
-  .scroller {
-    width: 8px;
-    height: 8px;
-    background-color: #f1f1f1;
+  /* Header Area with Background */
+  .header-background {
+    @apply bg-yellow-400 w-full; /* A bright yellow background */
+  }
+
+  /* Profile Image Styles */
+  .profile-image {
+    @apply w-32 h-32 rounded-full border-4 border-white shadow-lg; /* White border with shadow */
+  }
+
+  /* Name Typography */
+  .profile-name {
+    @apply text-5xl font-semibold text-gray-900 mt-4; /* Dark text for the name */
+  }
+
+  /* Subtitle Typography */
+  .profile-subtitle {
+    @apply text-lg text-gray-700 mt-2; /* Subtitle below the name */
+  }
+
+  /* Call to Action Button */
+  .cta-button {
+    @apply bg-black text-white py-3 px-8 rounded-md font-medium mt-6 hover:bg-gray-900 transition-colors; /* Black button with hover effect */
+  }
+
+  /* Section for the profile details and CTA button */
+  .profile-details {
+    @apply mt-6 p-6 bg-white rounded-lg shadow-md text-center; /* White card for the details and CTA */
   }
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #888;
-  border-radius: 10px;
-}
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.text-base-content-important {
-  color: hsla(var(--bc) / var(--tw-text-opacity)) !important;
-}
-
-svg {
-  vertical-align: unset;
-}
-
-.z-hover {
-  transition: all ease-in-out 0.3s !important;
-}
-
-.z-hover:hover,
-.z-hover:focus,
-.z-hover:active {
-  transition: transform 0.3s !important;
-  -ms-transform: scale(1.01) !important;
-  -webkit-transform: scale(1.01) !important;
-  transform: scale(1.01) !important;
-}
-
-.pb-0-important {
-  padding-bottom: 0 !important;
-}
-
-.fade-in {
-  opacity: 1;
-  animation-name: fadeIn;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 1s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .profile-image {
+    @apply w-40 h-40; /* Larger profile image for larger screens */
   }
-  100% {
-    opacity: 1;
-  }
-}
 
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
+  .profile-name {
+    @apply text-6xl; /* Larger text size for the name */
   }
-  to {
-    opacity: 1;
+
+  .cta-button {
+    @apply text-xl; /* Larger button text */
   }
 }

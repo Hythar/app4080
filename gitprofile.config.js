@@ -2,39 +2,40 @@
 
 const config = {
   github: {
-    username: 'arifszn', // Your GitHub org/user name. (Required)
+    username: 'Hythar', // Your GitHub org/user name. (Required)
     sortBy: 'stars', // stars | updated
     limit: 10, // How many projects to display.
     exclude: {
       forks: false, // Forked projects will not be displayed if set to true.
-      projects: [], // These projects will not be displayed. example: ['my-project1', 'my-project2']
+      projects: ['App4080-Project', 'curly-palm-tree', 'todolist','my_cv'], // These projects will not be displayed. example: ['my-project1', 'my-project2']
     },
   },
   social: {
-    linkedin: 'ariful-alam',
-    twitter: 'arif_szn',
-    mastodon: 'arifszn@mastodon.social',
+    linkedin: 'abdirizaq-hathar',
+    twitter: 'AbdiBary',
+    mastodon: '',
     facebook: '',
     instagram: '',
     youtube: '', // example: 'pewdiepie'
     dribbble: '',
     behance: '',
-    medium: 'arifszn',
-    dev: 'arifszn',
+    medium: '',
+    dev: '',
     stackoverflow: '', // example: '1/jeff-atwood'
     skype: '',
     telegram: '',
-    website: 'https://arifszn.com',
+    website: '',
     phone: '',
-    email: 'arifulalamszn@gmail.com',
+    email: '',
   },
-  resume: {
+  /*resume: {
     fileUrl:
       'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', // Empty fileUrl will hide the `Download Resume` button.
   },
+  */
   skills: [
     'PHP',
-    'Laravel',
+    //'Laravel',
     'JavaScript',
     'React.js',
     'Node.js',
@@ -42,26 +43,26 @@ const config = {
     'MySQL',
     'PostgreSQL',
     'Git',
-    'Docker',
-    'PHPUnit',
+    //'Docker',
+    //'PHPUnit',
     'CSS',
-    'Antd',
+    //'Antd',
     'Tailwind',
   ],
   experiences: [
     {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'September 2021',
-      to: 'Present',
-      companyLink: 'https://example.com',
+      company: 'Hass Petroleum ltd',
+      position: 'intern',
+      from: 'September 2022',
+      to: 'May 2023',
+      companyLink: '',
     },
     {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'July 2019',
+      company: 'MPC',
+      position: 'System Manager',
+      from: 'July 2121',
       to: 'August 2021',
-      companyLink: 'https://example.com',
+      companyLink: '',
     },
   ],
   /* certifications: [
@@ -71,7 +72,7 @@ const config = {
       year: 'March 2022',
       link: 'https://example.com'
     },
-  ], */
+  ], 
   education: [
     {
       institution: 'Institution Name',
@@ -85,9 +86,10 @@ const config = {
       from: '2012',
       to: '2014',
     },
-  ],
+  ],*/
 
   // To hide the `My Projects` section, keep it empty.
+  /*
   externalProjects: [
     {
       title: 'Project Name',
@@ -104,15 +106,7 @@ const config = {
       link: 'https://example.com',
     },
   ],
-  // Display blog posts from your medium or dev account. (Optional)
-  blog: {
-    source: 'dev', // medium | dev
-    username: 'arifszn', // to hide blog section, keep it empty
-    limit: 2, // How many posts to display. Max is 10.
-  },
-  googleAnalytics: {
-    id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
-  },
+  */
   // Track visitor interaction and behavior. https://www.hotjar.com
   hotjar: {
     id: '',
@@ -127,7 +121,7 @@ const config = {
 
     // Should use the prefers-color-scheme media-query,
     // using user system preferences, instead of the hardcoded defaultTheme
-    respectPrefersColorScheme: false,
+    respectPrefersColorScheme: true,
 
     // Hide the ring in Profile picture
     hideAvatarRing: false,
@@ -164,26 +158,24 @@ const config = {
       'coffee',
       'winter',
       'procyon',
+      
     ],
 
     // Custom theme
     customTheme: {
-      primary: '#fc055b',
-      secondary: '#219aaf',
-      accent: '#e8d03a',
-      neutral: '#2A2730',
-      'base-100': '#E3E3ED',
-      '--rounded-box': '3rem',
-      '--rounded-btn': '3rem',
-    },
+      primary: '#00FFC6',    // Bright neon green, giving a vibrant, energetic feel
+      secondary: '#0A84FF',  // Electric blue, often associated with futuristic themes
+      accent: '#FF00FF',     // Neon pink, adding a vivid pop of color
+      neutral: '#1C1C1E',    // Dark gray for a sleek, modern background
+      'base-100': '#2D2D30', // A slightly lighter shade of dark gray for base elements
+      '--rounded-box': '1rem',    // Smoother, less pronounced rounding for boxes
+      '--rounded-btn': '1rem',    // Similar rounding for buttons for consistency
+    }
+    ,
   },
 
   // Optional Footer. Supports plain text or HTML.
-  footer: `Made with <a 
-      class="text-primary" href="https://github.com/arifszn/gitprofile"
-      target="_blank"
-      rel="noreferrer"
-    >GitProfile</a> and ❤️`,
+  footer: `App4080 Group Project`,
 };
 
 export default config;

@@ -1,99 +1,78 @@
-import { skeleton } from '../../helpers/utils';
-import { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { skeleton } from '../../helpers/utils';
 
-const ListItem = ({ time, position, company, companyLink }) => (
-  <li className="mb-5 ml-4">
-    <div
-      className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
-      style={{ left: '-4.5px' }}
-    ></div>
-    <div className="my-0.5 text-xs">{time}</div>
-    <h3 className="font-semibold">{position}</h3>
-    <div className="mb-4 font-normal">
-      <a href={companyLink} target="_blank" rel="noreferrer">
-        {company}
-      </a>
-    </div>
-  </li>
-);
+const ExperienceItem = ({ role, company, period, companyLink, loading }) => {
+  const itemStyle = 'flex flex-col'; // Adjust as needed for layout
+  const roleStyle = 'text-lg font-bold'; // Adjust as needed for role title
+  const companyStyle = 'text-sm'; // Adjust as needed for company name
+  const periodStyle = 'text-xs mb-2'; // Adjust as needed for period
 
-const Experience = ({ experiences, loading }) => {
-  const renderSkeleton = () => {
-    let array = [];
-    for (let index = 0; index < 2; index++) {
-      array.push(
-        <ListItem
-          key={index}
-          time={skeleton({
-            width: 'w-5/12',
-            height: 'h-4',
-          })}
-          position={skeleton({
-            width: 'w-6/12',
-            height: 'h-4',
-            className: 'my-1.5',
-          })}
-          company={skeleton({ width: 'w-6/12', height: 'h-3' })}
-        />
-      );
-    }
-
-    return array;
-  };
   return (
-    <>
-      {experiences?.length !== 0 && (
-        <div className="card shadow-lg compact bg-base-100">
-          <div className="card-body">
-            <div className="mx-3">
-              <h5 className="card-title">
-                {loading ? (
-                  skeleton({ width: 'w-32', height: 'h-8' })
-                ) : (
-                  <span className="text-base-content opacity-70">
-                    Experience
-                  </span>
-                )}
-              </h5>
-            </div>
-            <div className="text-base-content text-opacity-60">
-              <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
-                {loading ? (
-                  renderSkeleton()
-                ) : (
-                  <Fragment>
-                    {experiences.map((experience, index) => (
-                      <ListItem
-                        key={index}
-                        time={`${experience.from} - ${experience.to}`}
-                        position={experience.position}
-                        company={experience.company}
-                        companyLink={
-                          experience.companyLink ? experience.companyLink : null
-                        }
-                      />
-                    ))}
-                  </Fragment>
-                )}
-              </ol>
-            </div>
-          </div>
-        </div>
+    <div className={itemStyle}>
+      {loading ? (
+        skeleton({ width: 'w-full', height: 'h-6' })
+      ) : (
+        <>
+          <span className={roleStyle}>{role}</span>
+          <a href={companyLink} target="_blank" rel="noreferrer" className={companyStyle}>
+            {company}
+          </a>
+          <span className={periodStyle}>{period}</span>
+        </>
       )}
-    </>
+    </div>
   );
 };
 
-ListItem.propTypes = {
-  time: PropTypes.node,
-  position: PropTypes.node,
-  company: PropTypes.node,
+ExperienceItem.propTypes = {
+  role: PropTypes.string.isRequired,
+  company: PropTypes.string.isRequired,
+  period: PropTypes.string.isRequired,
   companyLink: PropTypes.string,
+  loading: PropTypes.bool.isRequired,
+};
+
+const Experience = ({ experiences, loading }) => {
+  const containerStyle = 'card shadow-lg compact bg-base-100'; // Card container styles
+  const headerStyle = 'text-center font-bold text-xl mb-4'; // Header styles
+
+  return (
+    <div className={containerStyle}>
+      <div className="card-body">
+        <h5 className={headerStyle}>
+          {loading ? skeleton({ width: 'w-32', height: 'h-8' }) : 'Experience'}
+        </h5>
+        <div className="space-y-4">
+          {loading ? (
+            <div>{skeleton({ width: 'w-full', height: 'h-24' })}</div>
+          ) : (
+            experiences.map((exp, index) => (
+              <ExperienceItem
+                key={index}
+                role={exp.position}
+                company={exp.company}
+                period={`${exp.from} - ${exp.to}`}
+                companyLink={exp.companyLink}
+                loading={loading}
+              />
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 Experience.propTypes = {
-  experiences: PropTypes.array.isRequired,
+  experiences: PropTypes.arrayOf(
+    PropTypes.shape({
+      company: PropTypes.string.isRequired,
+      position: PropTypes.string.isRequired,
+      from: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+      companyLink: PropTypes.string,
+    })
+  ).isRequired,
   loading: PropTypes.bool.isRequired,
 };
 

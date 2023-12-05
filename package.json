@@ -1,12 +1,12 @@
 {
-  "name": "@arifszn/gitprofile",
+  "name": "@Hythar/App4080-Project",
   "description": "Create an automatic portfolio based on GitHub profile",
   "version": "2.6.0",
   "license": "MIT",
-  "author": "arifszn",
+  "author": "Hythar",
   "repository": {
     "type": "git",
-    "url": "https://github.com/arifszn/gitprofile.git"
+    "url": "https://github.com/Hythar/App4080-Project.git"
   },
   "bugs": {
     "url": "https://github.com/arifszn/gitprofile/issues"
@@ -57,7 +57,7 @@
     "prop-types": "^15.8.1",
     "react-helmet-async": "^1.2.3",
     "react-hotjar": "^6.1.0",
-    "react-icons": "^4.3.1",
+    "react-icons": "^4.12.0",
     "tailwindcss": "^3.0.23",
     "vite": "^4.0.3",
     "vite-plugin-pwa": "^0.16.3"

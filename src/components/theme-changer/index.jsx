@@ -9,7 +9,7 @@ const ThemeChanger = ({ theme, setTheme, loading, themeConfig }) => {
 
     typeof window !== 'undefined' &&
       localStorage.setItem('gitprofile-theme', selectedTheme);
-
+      
     setTheme(selectedTheme);
   };
 

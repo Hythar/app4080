@@ -1,0 +1,35 @@
+/* GitProfile.css */
+.git-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f2f5;
+  }
+  
+  .section {
+    width: 100%;
+    max-width: 800px; /* Adjust the width as needed */
+    background: #ffffff;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  /* Add additional styling for each section */
+  .theme { background-color: #e1e4e8; }
+  .profile { background-color: #f8f9fa; }
+  .experience { background-color: #e9ecef; }
+  .skills { background-color: #196dc2; }
+  .projects { background-color: #e9ecef; }
+  .activity { background-color: #f8f9fa; }
+  .footer { background-color: #e1e4e8; }
+  
+  /* You can add responsive design with media queries */
+  @media (max-width: 768px) {
+    .section {
+      width: 90%;
+    }
+  }
+  

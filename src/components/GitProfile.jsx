@@ -7,11 +7,11 @@ import AvatarCard from './avatar-card';
 import Details from './details';
 import Skill from './skill';
 import Experience from './experience';
-import Certification from './certification';
 import Education from './education';
 import Project from './project';
-import Blog from './blog';
 import Footer from './footer';
+import GithubActivity from './githubapi/GithubActivity';
+import '../components/githubapi/GithubActivity.css'
 import {
   genericError,
   getInitialTheme,
@@ -189,10 +189,7 @@ const GitProfile = ({ config }) => {
                         loading={loading}
                         education={sanitizedConfig.education}
                       />
-                      <Certification
-                        loading={loading}
-                        certifications={sanitizedConfig.certifications}
-                      />
+                     
                     </div>
                   </div>
                   <div className="lg:col-span-2 col-span-1">
@@ -208,12 +205,14 @@ const GitProfile = ({ config }) => {
                         externalProjects={sanitizedConfig.externalProjects}
                         googleAnalytics={sanitizedConfig.googleAnalytics}
                       />
-                      <Blog
+
+                      <GithubActivity
                         loading={loading}
-                        googleAnalytics={sanitizedConfig.googleAnalytics}
-                        blog={sanitizedConfig.blog}
+                        username={sanitizedConfig.github.username}
+                        theme={theme}
                       />
-                    </div>
+                      
+                     </div>
                   </div>
                 </div>
               </div>
